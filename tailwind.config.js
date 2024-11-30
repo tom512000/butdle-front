@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.jsx"],
+    content: ["./src/**/*.jsx", "./index.html"],
     darkMode: "class",
     theme: {
         extend: {
             fontFamily: {
-                exemple: ["Exemple", "sans-serif"],
+                parkinsans: ["Parkinsans", "sans-serif"],
+                inter: ["Inter", "sans-serif"],
             },
             colors: {
                 "light-blue-but": "#41BDF0",
@@ -46,6 +47,9 @@ module.exports = {
                 extrabold: "800",
                 black: "900",
             },
+        },
+        backgroundImage: {
+            iut: "url('/public/images/iut.jpg')",
         },
     },
     variants: {},
