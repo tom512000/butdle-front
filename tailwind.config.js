@@ -5,10 +5,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                lexend: ["Lexend", "sans-serif"],
+                exemple: ["Exemple", "sans-serif"],
             },
             colors: {
-                "white-example": "#FFFFFF",
+                "light-blue-but": "#41BDF0",
+                "dark-blue-but": "#0A3054",
             },
             screens: {
                 ssm: "320px",
