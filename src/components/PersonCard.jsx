@@ -23,35 +23,52 @@ export default function PersonCard({ person, target }) {
     }
 
     return (
-        <div
-            style={{
-                border: "1px solid black",
-                margin: "10px",
-                padding: "10px",
-            }}
-        >
-            <p style={{ color: getColor("nom", person.nom) }}>
-                Nom: {person.nom}
-            </p>
-            <p style={{ color: getColor("prenom", person.prenom) }}>
-                Prénom: {person.prenom}
-            </p>
-            <p style={{ color: getColor("genre", person.genre) }}>
-                Genre: {person.genre}
-            </p>
-            <p style={{ color: getColor("emploi", person.emploi) }}>
-                Emploi: {person.emploi}
-            </p>
-            <p style={{ color: getColor("statut", person.statut) }}>
-                Statut: {person.statut}
-            </p>
-            <p style={{ color: getColor("matieres", person.matieres) }}>
-                Matières:{" "}
+        <>
+            <div className="h-4" />
+            <div className="h-4" />
+            <div className="h-4" />
+            <div className="h-4" />
+            <div className="h-4" />
+            <div className="h-4" />
+            <div
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500 rounded-l-lg"
+                style={{ color: getColor("prenom", person.prenom) }}
+            >
+                {person.prenom}
+            </div>
+            <div
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                style={{ color: getColor("nom", person.nom) }}
+            >
+                {person.nom}
+            </div>
+            <div
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                style={{ color: getColor("genre", person.genre) }}
+            >
+                {person.genre}
+            </div>
+            <div
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                style={{ color: getColor("emploi", person.emploi) }}
+            >
+                {person.emploi}
+            </div>
+            <div
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                style={{ color: getColor("statut", person.statut) }}
+            >
+                {person.statut}
+            </div>
+            <div
+                className="flex justify-center items-center px-2 py-2 text-wrap text-center text-base font-inter font-light bg-gray-800 text-gray-500 rounded-r-lg"
+                style={{ color: getColor("matieres", person.matieres) }}
+            >
                 {person.matieres.length > 0
                     ? person.matieres.join(", ")
                     : "Aucune"}
-            </p>
-        </div>
+            </div>
+        </>
     );
 }
 

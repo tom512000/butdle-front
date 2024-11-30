@@ -57,8 +57,9 @@ export default function App() {
     }
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div className="min-h-screen h-full flex flex-col items-center">
             <h1>Jeu de Devinette</h1>
+
             {gameWon ? (
                 <div>
                     <h2>
@@ -79,11 +80,9 @@ export default function App() {
                         style={{ padding: "10px", width: "300px" }}
                     />
                     <div>
-                        {suggestions.map((person, index) => (
+                        {suggestions.map((person) => (
                             // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                             <div
-                                // eslint-disable-next-line react/no-array-index-key
-                                key={index}
                                 onClick={() => handleSuggestionClick(person)}
                                 style={{
                                     cursor: "pointer",
@@ -97,14 +96,29 @@ export default function App() {
                         ))}
                     </div>
                     <h3>Personnes validées :</h3>
-                    {validatedPersons.map((person, index) => (
-                        <PersonCard
-                            // eslint-disable-next-line react/no-array-index-key
-                            key={index}
-                            person={person}
-                            target={targetPerson}
-                        />
-                    ))}
+                    <div className="grid grid-cols-6 max-w-screen-lg">
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-l-lg">
+                            PRÉNOM
+                        </div>
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                            NOM
+                        </div>
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                            GENRE
+                        </div>
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                            EMPLOI
+                        </div>
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                            STATUT
+                        </div>
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-r-lg">
+                            MATIÈRE(S)
+                        </div>
+                        {validatedPersons.map((person) => (
+                            <PersonCard person={person} target={targetPerson} />
+                        ))}
+                    </div>
                 </>
             )}
         </div>
