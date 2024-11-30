@@ -95,9 +95,9 @@ export default function App() {
                             </div>
                         ))}
                     </div>
-                    <h3>Personnes validées :</h3>
-                    <div className="grid grid-cols-6 max-w-screen-lg">
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-l-lg">
+                    <div className="grid grid-cols-[70px_150px_150px_150px_150px_150px_320px] mt-4">
+                        <div className="text-center bg-gray-800 rounded-l-lg" />
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
                             PRÉNOM
                         </div>
                         <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
@@ -115,6 +115,13 @@ export default function App() {
                         <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-r-lg">
                             MATIÈRE(S)
                         </div>
+                        <div className="h-2" />
+                        <div className="h-2" />
+                        <div className="h-2" />
+                        <div className="h-2" />
+                        <div className="h-2" />
+                        <div className="h-2" />
+                        <div className="h-2" />
                         {validatedPersons.map((person) => (
                             <PersonCard person={person} target={targetPerson} />
                         ))}

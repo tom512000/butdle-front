@@ -24,14 +24,22 @@ export default function PersonCard({ person, target }) {
 
     return (
         <>
-            <div className="h-4" />
-            <div className="h-4" />
-            <div className="h-4" />
-            <div className="h-4" />
-            <div className="h-4" />
-            <div className="h-4" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="flex justify-center items-center py-5 bg-gray-800 rounded-l-lg">
+                <img
+                    className="rounded-full h-12 w-12 object-cover ml-5"
+                    src={`./public/images/${person.image}`}
+                    alt={`${person.prenom} ${person.nom}`}
+                />
+            </div>
             <div
-                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500 rounded-l-lg"
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
                 style={{ color: getColor("prenom", person.prenom) }}
             >
                 {person.prenom}
@@ -68,6 +76,13 @@ export default function PersonCard({ person, target }) {
                     ? person.matieres.join(", ")
                     : "Aucune"}
             </div>
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
+            <div className="h-2" />
         </>
     );
 }
@@ -83,5 +98,13 @@ PersonCard.propTypes = {
         emploi: PropTypes.string.isRequired,
         statut: PropTypes.string.isRequired,
         matieres: PropTypes.arrayOf(PropTypes.string),
-    }).isRequired,
+        image: PropTypes.string,
+    }),
+};
+
+PersonCard.defaultProps = {
+    person: {
+        matieres: [],
+        image: "",
+    },
 };

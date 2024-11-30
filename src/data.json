@@ -5,7 +5,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Architectures réseaux", "Développement web"]
+    "matieres": ["Architectures réseaux", "Développement web"],
+    "image": "gregory-arganini.png"
   },
   {
     "prenom": "René",
@@ -13,7 +14,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Mathématiques"]
+    "matieres": ["Mathématiques"],
+    "image": "default.png"
   },
   {
     "prenom": "Aassif",
@@ -21,15 +23,17 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Python", "Linux", "C++"]
+    "matieres": ["Python", "Linux", "C++"],
+    "image": "aassif-benassarou.png"
   },
   {
-    "prenom": "Éric",
+    "prenom": "Eric",
     "nom": "Bittar",
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["PPP"]
+    "matieres": ["PPP"],
+    "image": "eric-bittar.png"
   },
   {
     "prenom": "Frédéric",
@@ -37,7 +41,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Mathématiques", "BD", "Data"]
+    "matieres": ["Mathématiques", "BD", "Data"],
+    "image": "frederic-blanchard.png"
   },
   {
     "prenom": "Lydia",
@@ -45,7 +50,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Développement web", "Python"]
+    "matieres": ["Développement web", "Python"],
+    "image": "lydia-bouchlaghem.png"
   },
   {
     "prenom": "Sylvia",
@@ -53,7 +59,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Développement web", "Python", "Programmation jeu"]
+    "matieres": ["Développement web", "Python", "Programmation jeu"],
+    "image": "sylvia-chalencon.png"
   },
   {
     "prenom": "Mondher",
@@ -61,7 +68,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Économie"]
+    "matieres": ["Économie"],
+    "image": "mondher-cherif.png"
   },
   {
     "prenom": "Valérie",
@@ -69,7 +77,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["PPP", "Communication"]
+    "matieres": ["PPP", "Communication"],
+    "image": "valerie-chevalarias.png"
   },
   {
     "prenom": "Étienne",
@@ -77,7 +86,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Mathématiques"]
+    "matieres": ["Mathématiques"],
+    "image": "etienne-coutant.png"
   },
   {
     "prenom": "Jérôme",
@@ -85,7 +95,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Développement web", "Programmation avancée", "Qualité de développement", "Automatisation"]
+    "matieres": ["Développement web", "Programmation avancée", "Qualité de développement", "Automatisation"],
+    "image": "jerome-cutrona.png"
   },
   {
     "prenom": "Éric",
@@ -93,7 +104,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Python", "Architectures réseaux", "Développement orienté objets", "BD"]
+    "matieres": ["Python", "Architectures réseaux", "Développement orienté objets", "BD"],
+    "image": "eric-desjardin.png"
   },
   {
     "prenom": "Gilles",
@@ -101,7 +113,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Droit", "Gestion", "Management des SI"]
+    "matieres": ["Droit", "Gestion", "Management des SI"],
+    "image": "gilles-escuyer.png"
   },
   {
     "prenom": "Fatima",
@@ -109,7 +122,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Développement web"]
+    "matieres": ["Développement web"],
+    "image": "fatima-ghedjati.png"
   },
   {
     "prenom": "Didier",
@@ -117,7 +131,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Qualité de développement", "BD", "Programmation avancée"]
+    "matieres": ["Qualité de développement", "BD", "Programmation avancée"],
+    "image": "didier-gillard.png"
   },
   {
     "prenom": "Zahia",
@@ -125,7 +140,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Optimisation", "IA", "Management des SI"]
+    "matieres": ["Optimisation", "IA", "Management des SI"],
+    "image": "zahia-guessoum.png"
   },
   {
     "prenom": "Helen",
@@ -133,7 +149,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Anglais"]
+    "matieres": ["Anglais"],
+    "image": "default.png"
   },
   {
     "prenom": "Antoine",
@@ -141,7 +158,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Développement web", "Programmation avancée", "Qualité de développement", "Automatisation"]
+    "matieres": ["Développement web", "Programmation avancée", "Qualité de développement", "Automatisation"],
+    "image": "antoine-jonquet.png"
   },
   {
     "prenom": "David",
@@ -149,7 +167,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Mathématiques"]
+    "matieres": ["Mathématiques"],
+    "image": "default.png"
   },
   {
     "prenom": "Bart",
@@ -157,7 +176,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Développement orienté objets", "Python", "Développement efficace"]
+    "matieres": ["Développement orienté objets", "Python", "Développement efficace"],
+    "image": "bart-lamiroy.png"
   },
   {
     "prenom": "Frédéric",
@@ -165,7 +185,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Anglais"]
+    "matieres": ["Anglais"],
+    "image": "frederic-montanari.png"
   },
   {
     "prenom": "Jean-michel",
@@ -173,7 +194,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Linux", "BD", "Qualité de développement", "Architecture logicielle"]
+    "matieres": ["Linux", "BD", "Qualité de développement", "Architecture logicielle"],
+    "image": "jean-michel-nourrit.png"
   },
   {
     "prenom": "Nicolas",
@@ -181,7 +203,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Qualité algorithmique", "Mathématiques"]
+    "matieres": ["Qualité algorithmique", "Mathématiques"],
+    "image": "nicolas-passat.png"
   },
   {
     "prenom": "Stéphanie",
@@ -189,15 +212,17 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["BD", "SQL", "Analyse"]
+    "matieres": ["BD", "SQL", "Analyse"],
+    "image": "stephanie-prevost.png"
   },
   {
-    "prenom": "Angélica",
+    "prenom": "Angelica",
     "nom": "Rigaudière",
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Communication"]
+    "matieres": ["Communication"],
+    "image": "angelica-rigaudiere.png"
   },
   {
     "prenom": "Barbara",
@@ -205,7 +230,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Python", "Développement orienté objets", "C++"]
+    "matieres": ["Python", "Développement orienté objets", "C++"],
+    "image": "barbara-romaniuk.png"
   },
   {
     "prenom": "Lydie",
@@ -213,7 +239,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["BD", "SQL", "Analyse"]
+    "matieres": ["BD", "SQL", "Analyse"],
+    "image": "lydie-sandron.png"
   },
   {
     "prenom": "Philippe",
@@ -221,7 +248,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Python", "Qualité de développement", "Développement efficace", "Développement web"]
+    "matieres": ["Python", "Qualité de développement", "Développement efficace", "Développement web"],
+    "image": "philippe-vautrot.png"
   },
   {
     "prenom": "Ingrid",
@@ -229,7 +257,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Permanent",
-    "matieres": ["Anglais"]
+    "matieres": ["Anglais"],
+    "image": "default.png"
   },
   {
     "prenom": "Stéphane",
@@ -237,7 +266,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["Docker"]
+    "matieres": ["Docker"],
+    "image": "stephane-champenois.png"
   },
   {
     "prenom": "Sylvain",
@@ -245,7 +275,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["React"]
+    "matieres": ["React"],
+    "image": "sylvain-combraque.png"
   },
   {
     "prenom": "Adeline",
@@ -253,7 +284,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["Communication"]
+    "matieres": ["Communication"],
+    "image": "default.png"
   },
   {
     "prenom": "Pierre-Emmanuel",
@@ -261,7 +293,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["Développement mobile"]
+    "matieres": ["Développement mobile"],
+    "image": "pierre-emmanuel-gougelet.png"
   },
   {
     "prenom": "Marie-Hélène",
@@ -269,7 +302,17 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["BD", "SQL"]
+    "matieres": ["BD", "SQL"],
+    "image": "marie-helene-guenard.png"
+  },
+  {
+    "prenom": "Ivan",
+    "nom": "Polliart",
+    "genre": "Homme",
+    "emploi": "Enseignant",
+    "statut": "Vacataire",
+    "matieres": ["Communication"],
+    "image": "ivan-polliart.png"
   },
   {
     "prenom": "Sylvie",
@@ -277,7 +320,8 @@
     "genre": "Femme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["Communication"]
+    "matieres": ["Communication"],
+    "image": "sylvie-lafon.png"
   },
   {
     "prenom": "Ludovic",
@@ -285,7 +329,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["PPP"]
+    "matieres": ["PPP"],
+    "image": "ludovic-lambert.png"
   },
   {
     "prenom": "Yann",
@@ -293,7 +338,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["Qualité de développement", "Développement orienté objets"]
+    "matieres": ["Qualité de développement", "Développement orienté objets"],
+    "image": "yann-saguez.png"
   },
   {
     "prenom": "Joel",
@@ -301,7 +347,8 @@
     "genre": "Homme",
     "emploi": "Enseignant",
     "statut": "Vacataire",
-    "matieres": ["Droit"]
+    "matieres": ["Droit"],
+    "image": "joel-widart.png"
   },
   {
     "prenom": "Cyrille",
@@ -309,7 +356,8 @@
     "genre": "Homme",
     "emploi": "Technicien",
     "statut": "Autre",
-    "matieres": []
+    "matieres": [],
+    "image": "cyrille-collard.png"
   },
   {
     "prenom": "Stéphanie",
@@ -317,6 +365,7 @@
     "genre": "Femme",
     "emploi": "Secrétaire",
     "statut": "Autre",
-    "matieres": []
+    "matieres": [],
+    "image": "stephanie-piernot.png"
   }
 ]
