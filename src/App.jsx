@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import data from "./data.json";
+import data from "./data/persons.json";
 import PersonCard from "./components/PersonCard";
 
 export default function App() {
@@ -72,28 +72,51 @@ export default function App() {
                 </div>
             ) : (
                 <>
-                    <input
-                        type="text"
-                        value={input}
-                        onChange={handleInputChange}
-                        placeholder="Entrez un nom ou un prénom"
-                        style={{ padding: "10px", width: "300px" }}
-                    />
-                    <div>
-                        {suggestions.map((person) => (
-                            // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-                            <div
-                                onClick={() => handleSuggestionClick(person)}
-                                style={{
-                                    cursor: "pointer",
-                                    background: "#f0f0f0",
-                                    padding: "5px",
-                                    marginTop: "5px",
-                                }}
-                            >
-                                {person.prenom} {person.nom}
-                            </div>
-                        ))}
+                    <div style={{ position: "relative", width: "300px" }}>
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={handleInputChange}
+                            placeholder="Entrez un nom ou un prénom"
+                            style={{
+                                padding: "10px",
+                                width: "100%",
+                                boxSizing: "border-box",
+                            }}
+                        />
+                        <div
+                            style={{
+                                position: "absolute",
+                                top: "100%",
+                                left: 0,
+                                width: "100%",
+                                background: "#f0f0f0",
+                                zIndex: 10,
+                                border:
+                                    suggestions.length > 0
+                                        ? "1px solid #ccc"
+                                        : "none",
+                                borderRadius: "4px",
+                                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                            }}
+                        >
+                            {suggestions.map((person) => (
+                                // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+                                <div
+                                    key={`${person.prenom}-${person.nom}`}
+                                    onClick={() =>
+                                        handleSuggestionClick(person)
+                                    }
+                                    style={{
+                                        cursor: "pointer",
+                                        padding: "10px",
+                                        borderBottom: "1px solid #e0e0e0",
+                                    }}
+                                >
+                                    {person.prenom} {person.nom}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className="grid grid-cols-[70px_150px_150px_150px_150px_150px_320px] mt-4">
                         <div className="text-center bg-gray-800 rounded-l-lg" />
@@ -123,7 +146,11 @@ export default function App() {
                         <div className="h-2" />
                         <div className="h-2" />
                         {validatedPersons.map((person) => (
-                            <PersonCard person={person} target={targetPerson} />
+                            <PersonCard
+                                key={`${person.prenom}-${person.nom}`}
+                                person={person}
+                                target={targetPerson}
+                            />
                         ))}
                     </div>
                 </>
