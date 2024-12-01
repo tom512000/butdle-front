@@ -80,30 +80,35 @@ export default function App() {
             ) : (
                 <>
                     <div style={{ position: "relative", width: "300px" }}>
-                        <input
-                            type="text"
-                            value={input}
-                            onChange={handleInputChange}
-                            placeholder="Entrez un nom ou un prénom"
-                            style={{
-                                padding: "10px",
-                                width: "100%",
-                                boxSizing: "border-box",
-                            }}
-                        />
+                        <div className="relative mb-0.5">
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={handleInputChange}
+                                placeholder="Entrez un nom ou un prénom"
+                                aria-label="search"
+                                className="appearance-none border-2 pl-10 bg-gray-800 border-gray-800 hover:border-gray-600 transition-colors rounded-md w-full py-2 px-3 font-inter text-sm text-gray-300 leading-tight focus:outline-none"
+                            />
+                            <div
+                                aria-label="cross"
+                                className="absolute right-0 inset-y-0 flex items-center cursor-pointer"
+                            >
+                                <i className="bx bx-x text-2xl ml-3 mr-2 text-gray-500 hover:text-gray-600" />
+                            </div>
+                            <div
+                                aria-label="search"
+                                className="absolute left-0 inset-y-0 flex items-center"
+                            >
+                                <i className="bx bx-search text-xl mx-3 text-gray-500" />
+                            </div>
+                        </div>
                         <div
+                            className="absolute top-full left-0 w-full bg-gray-900 z-10 rounded-[4px]"
                             style={{
-                                position: "absolute",
-                                top: "100%",
-                                left: 0,
-                                width: "100%",
-                                background: "#f0f0f0",
-                                zIndex: 10,
                                 border:
                                     suggestions.length > 0
-                                        ? "1px solid #ccc"
+                                        ? "1px solid #444852"
                                         : "none",
-                                borderRadius: "4px",
                                 boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                             }}
                         >
@@ -114,13 +119,17 @@ export default function App() {
                                     onClick={() =>
                                         handleSuggestionClick(person)
                                     }
-                                    style={{
-                                        cursor: "pointer",
-                                        padding: "10px",
-                                        borderBottom: "1px solid #e0e0e0",
-                                    }}
+                                    className="flex justify-start items-center border-b-2 border-gray-800 p-3 text-gray-500 font-inter cursor-pointer"
                                 >
-                                    {person.prenom} {person.nom}
+                                    <img
+                                        className="rounded-full h-8 w-8 object-cover ml-2 mr-4"
+                                        src={`./public/images/${person.image}`}
+                                        alt={`${person.prenom} ${person.nom}`}
+                                    />
+                                    <span className="font-semibold">
+                                        {person.prenom}
+                                    </span>
+                                    &thinsp;&thinsp;{person.nom}
                                 </div>
                             ))}
                         </div>
