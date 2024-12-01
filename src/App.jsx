@@ -20,18 +20,22 @@ export default function App() {
 
         // Filtrer les suggestions en fonction de l'entrée
         if (value.trim() !== "") {
-            const filteredSuggestions = data.filter(
-                (person) =>
-                    !validatedPersons.some(
-                        (validated) =>
-                            validated.nom === person.nom &&
-                            validated.prenom === person.prenom,
-                    ) && // Exclure les personnes déjà validées
-                    (person.nom.toLowerCase().includes(value.toLowerCase()) ||
-                        person.prenom
+            const filteredSuggestions = data
+                .filter(
+                    (person) =>
+                        !validatedPersons.some(
+                            (validated) =>
+                                validated.nom === person.nom &&
+                                validated.prenom === person.prenom,
+                        ) && // Exclure les personnes déjà validées
+                        (person.nom
                             .toLowerCase()
-                            .includes(value.toLowerCase())),
-            );
+                            .includes(value.toLowerCase()) ||
+                            person.prenom
+                                .toLowerCase()
+                                .includes(value.toLowerCase())),
+                )
+                .slice(0, 5); // Limiter à 5 suggestions
             setSuggestions(filteredSuggestions);
         } else {
             // Si l'input est vide, vider les suggestions
