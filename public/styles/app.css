@@ -648,6 +648,14 @@ video {
   margin-bottom: 0.125rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -698,6 +706,10 @@ video {
 
 .w-8 {
   width: 2rem;
+}
+
+.w-\[320px\] {
+  width: 320px;
 }
 
 .cursor-pointer {

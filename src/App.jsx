@@ -45,7 +45,7 @@ export default function App() {
 
     function handleSuggestionClick(person) {
         // Ajouter une personne validée
-        setValidatedPersons([...validatedPersons, person]);
+        setValidatedPersons([person, ...validatedPersons]);
         setInput("");
         setSuggestions([]);
 
@@ -89,7 +89,7 @@ export default function App() {
                 </div>
             ) : (
                 <>
-                    <div style={{ position: "relative", width: "300px" }}>
+                    <div className="relative w-[320px]">
                         <div className="relative mb-0.5">
                             <input
                                 type="text"
@@ -146,7 +146,7 @@ export default function App() {
                             ))}
                         </div>
                     </div>
-                    <div className="grid grid-cols-[70px_150px_150px_150px_150px_150px_320px] mt-4">
+                    <div className="grid grid-cols-[70px_150px_150px_150px_150px_150px_320px] mt-10">
                         <div className="text-center bg-gray-800 rounded-l-lg" />
                         <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
                             PRÉNOM
