@@ -19,17 +19,24 @@ export default function App() {
         setInput(value);
 
         // Filtrer les suggestions en fonction de l'entrée
-        const filteredSuggestions = data.filter(
-            (person) =>
-                !validatedPersons.some(
-                    (validated) =>
-                        validated.nom === person.nom &&
-                        validated.prenom === person.prenom,
-                ) && // Exclure les personnes déjà validées
-                (person.nom.toLowerCase().includes(value.toLowerCase()) ||
-                    person.prenom.toLowerCase().includes(value.toLowerCase())),
-        );
-        setSuggestions(filteredSuggestions);
+        if (value.trim() !== "") {
+            const filteredSuggestions = data.filter(
+                (person) =>
+                    !validatedPersons.some(
+                        (validated) =>
+                            validated.nom === person.nom &&
+                            validated.prenom === person.prenom,
+                    ) && // Exclure les personnes déjà validées
+                    (person.nom.toLowerCase().includes(value.toLowerCase()) ||
+                        person.prenom
+                            .toLowerCase()
+                            .includes(value.toLowerCase())),
+            );
+            setSuggestions(filteredSuggestions);
+        } else {
+            // Si l'input est vide, vider les suggestions
+            setSuggestions([]);
+        }
     }
 
     function handleSuggestionClick(person) {
