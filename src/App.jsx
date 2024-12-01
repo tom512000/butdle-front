@@ -54,6 +54,12 @@ export default function App() {
         }
     }
 
+    function handleClearInput() {
+        // Réinitialiser le champ d'entrée
+        setInput("");
+        setSuggestions([]);
+    }
+
     function handleRestart() {
         // Réinitialiser le jeu
         const randomPerson = data[Math.floor(Math.random() * data.length)];
@@ -89,12 +95,14 @@ export default function App() {
                                 aria-label="search"
                                 className="appearance-none border-2 pl-10 bg-gray-800 border-gray-800 hover:border-gray-600 transition-colors rounded-md w-full py-2 px-3 font-inter text-sm text-gray-300 leading-tight focus:outline-none"
                             />
-                            <div
+                            <button
+                                type="button"
+                                onClick={handleClearInput}
                                 aria-label="cross"
                                 className="absolute right-0 inset-y-0 flex items-center cursor-pointer"
                             >
                                 <i className="bx bx-x text-2xl ml-3 mr-2 text-gray-500 hover:text-gray-600" />
-                            </div>
+                            </button>
                             <div
                                 aria-label="search"
                                 className="absolute left-0 inset-y-0 flex items-center"
@@ -113,9 +121,9 @@ export default function App() {
                             }}
                         >
                             {suggestions.map((person) => (
-                                // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-                                <div
+                                <button
                                     key={`${person.prenom}-${person.nom}`}
+                                    type="button"
                                     onClick={() =>
                                         handleSuggestionClick(person)
                                     }
@@ -130,7 +138,7 @@ export default function App() {
                                         {person.prenom}
                                     </span>
                                     &thinsp;&thinsp;{person.nom}
-                                </div>
+                                </button>
                             ))}
                         </div>
                     </div>
