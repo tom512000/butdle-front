@@ -5,18 +5,27 @@ export default function PersonCard({ person, target }) {
     // Fonction pour déterminer la couleur en fonction des critères
     function getColor(field, value) {
         if (field === "matieres") {
-            if (value.length === 0) return "red"; // Liste vide
+            // Si la liste est vide
+            if (value.length === 0) return "red";
+
             const commonSubjects = value.filter((subject) =>
                 target.matieres.includes(subject),
             );
+
+            // Si au moins une matière commune
             if (
                 commonSubjects.length > 0 &&
                 commonSubjects.length !== target.matieres.length
             )
-                return "yellow"; // Au moins une matière commune
-            if (JSON.stringify(value) === JSON.stringify(target.matieres))
-                return "green"; // Matières identiques
-            return "red"; // Aucun lien
+                return "yellow";
+
+            // Si matières identiques
+            if (JSON.stringify(value) === JSON.stringify(target.matieres)) {
+                return "green";
+            }
+
+            // Aucun lien
+            return "red";
         }
 
         return value === target[field] ? "green" : "red";
@@ -33,43 +42,43 @@ export default function PersonCard({ person, target }) {
             <div className="h-2" />
             <div className="flex justify-center items-center py-5 bg-gray-800 rounded-l-lg">
                 <img
-                    className="rounded-full h-12 w-12 object-cover ml-5"
+                    className="rounded-full h-12 w-12 object-cover ml-10 z-50"
                     src={`./public/images/${person.image}`}
                     alt={`${person.prenom} ${person.nom}`}
                 />
             </div>
             <div
-                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-normal bg-gray-800 text-gray-500"
                 style={{ color: getColor("prenom", person.prenom) }}
             >
                 {person.prenom}
             </div>
             <div
-                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-normal bg-gray-800 text-gray-500"
                 style={{ color: getColor("nom", person.nom) }}
             >
                 {person.nom}
             </div>
             <div
-                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-normal bg-gray-800 text-gray-500"
                 style={{ color: getColor("genre", person.genre) }}
             >
                 {person.genre}
             </div>
             <div
-                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-normal bg-gray-800 text-gray-500"
                 style={{ color: getColor("emploi", person.emploi) }}
             >
                 {person.emploi}
             </div>
             <div
-                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-light bg-gray-800 text-gray-500"
+                className="flex justify-center items-center px-10 py-5 text-center text-base font-inter font-normal bg-gray-800 text-gray-500"
                 style={{ color: getColor("statut", person.statut) }}
             >
                 {person.statut}
             </div>
             <div
-                className="flex justify-center items-center px-2 py-2 text-wrap text-center text-base font-inter font-light bg-gray-800 text-gray-500 rounded-r-lg"
+                className="flex justify-center items-center px-2 py-2 text-wrap text-center text-base font-inter font-normal bg-gray-800 text-gray-500 rounded-r-lg"
                 style={{ color: getColor("matieres", person.matieres) }}
             >
                 {person.matieres.length > 0
