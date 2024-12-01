@@ -75,7 +75,11 @@ export default function App() {
 
     return (
         <div className="min-h-screen h-full flex flex-col items-center">
-            <h1>Jeu de Devinette</h1>
+            <img
+                src="/public/images/butdle-logo.png"
+                alt="Logo BUTDLE"
+                className="mt-10"
+            />
 
             {gameWon ? (
                 <div>
@@ -89,7 +93,7 @@ export default function App() {
                 </div>
             ) : (
                 <>
-                    <div className="relative w-[320px]">
+                    <div className="relative w-[320px] mt-10">
                         <div className="relative mb-0.5">
                             <input
                                 type="text"
@@ -131,7 +135,7 @@ export default function App() {
                                     onClick={() =>
                                         handleSuggestionClick(person)
                                     }
-                                    className="flex justify-start items-center border-b-2 border-gray-800 p-3 text-gray-500 font-inter cursor-pointer"
+                                    className="w-full flex justify-start items-center border-b-2 border-gray-800 p-3 text-gray-500 font-inter cursor-pointer"
                                 >
                                     <img
                                         className="rounded-full h-8 w-8 object-cover ml-2 mr-4"
