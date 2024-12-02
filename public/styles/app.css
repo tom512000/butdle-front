@@ -734,6 +734,10 @@ video {
   justify-content: center;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .text-wrap {
   text-wrap: wrap;
 }

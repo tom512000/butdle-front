@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch } from "wouter";
+import MainMenu from "./components/MainMenu";
 import MainGame from "./components/MainGame";
+import NotFound from "./components/NotFound";
 
 export default function App() {
     return (
@@ -11,9 +13,13 @@ export default function App() {
                 className="mt-10"
             />
             <Switch>
+                <Route path="/">
+                    <MainMenu />
+                </Route>
                 <Route path="/main-game">
                     <MainGame />
                 </Route>
+                <Route component={NotFound} />
             </Switch>
         </div>
     );
