@@ -49,7 +49,7 @@ module.exports = {
             },
         },
         backgroundImage: {
-            iut: "url('/public/images/iut.jpg')",
+            iut: "url('/images/iut.jpg')",
         },
     },
     variants: {},

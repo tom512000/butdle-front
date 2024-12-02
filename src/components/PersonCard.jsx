@@ -43,7 +43,7 @@ export default function PersonCard({ person, target }) {
             <div className="flex justify-center items-center py-5 bg-gray-800 rounded-l-lg">
                 <img
                     className="rounded-full h-12 w-12 object-cover ml-10 z-50"
-                    src={`./public/images/${person.image}`}
+                    src={`/images/${person.image}`}
                     alt={`${person.prenom} ${person.nom}`}
                 />
             </div>

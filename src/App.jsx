@@ -76,7 +76,7 @@ export default function App() {
     return (
         <div className="min-h-screen h-full flex flex-col items-center">
             <img
-                src="/public/images/butdle-logo.png"
+                src="/images/butdle-logo.png"
                 alt="Logo BUTDLE"
                 className="mt-10"
             />
@@ -139,7 +139,7 @@ export default function App() {
                                 >
                                     <img
                                         className="rounded-full h-8 w-8 object-cover ml-2 mr-4"
-                                        src={`./public/images/${person.image}`}
+                                        src={`/images/${person.image}`}
                                         alt={`${person.prenom} ${person.nom}`}
                                     />
                                     <span className="font-semibold">
