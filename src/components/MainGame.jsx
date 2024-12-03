@@ -74,7 +74,7 @@ export default function MainGame() {
     }
 
     return (
-        <div>
+        <div className="flex flex-col items-center">
             {gameWon ? (
                 <div>
                     <h2>
