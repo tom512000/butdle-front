@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 import data from "../data/persons.json";
 import PersonCard from "./PersonCard";
-import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 
 export default function MainGame() {
     const [input, setInput] = useState("");
@@ -77,7 +77,7 @@ export default function MainGame() {
     return (
         <div className="flex flex-col items-center">
             {gameWon ? (
-                <div>
+                <div className="bg-gradient-to-b from-emerald-300 to-gray-800">
                     <h2>
                         Bravo ! Vous avez trouvé {targetPerson.prenom}{" "}
                         {targetPerson.nom} !

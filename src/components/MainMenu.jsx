@@ -1,5 +1,9 @@
 import React from "react";
-import { ClockCircleOutlined, ReloadOutlined, UserOutlined } from "@ant-design/icons";
+import {
+    ClockCircleOutlined,
+    ReloadOutlined,
+    UserOutlined,
+} from "@ant-design/icons";
 import ButtonCard from "./ButtonCard";
 
 export default function MainMenu() {
