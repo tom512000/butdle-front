@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import data from "../data/persons.json";
 import PersonCard from "./PersonCard";
+import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 
 export default function MainGame() {
     const [input, setInput] = useState("");
@@ -103,13 +104,13 @@ export default function MainGame() {
                                 aria-label="cross"
                                 className="absolute right-0 inset-y-0 flex items-center cursor-pointer"
                             >
-                                <i className="bx bx-x text-2xl ml-3 mr-2 text-gray-500 hover:text-gray-600" />
+                                <CloseOutlined className="bx bx-x text-xl ml-3 mr-3 text-gray-500 hover:text-gray-600" />
                             </button>
                             <div
                                 aria-label="search"
                                 className="absolute left-0 inset-y-0 flex items-center"
                             >
-                                <i className="bx bx-search text-xl mx-3 text-gray-500" />
+                                <SearchOutlined className="bx bx-search text-xl mx-3 text-gray-500" />
                             </div>
                         </div>
                         <div
