@@ -11,6 +11,7 @@ export default function MainGame() {
     const [gameWon, setGameWon] = useState(false);
 
     useEffect(() => {
+        // Stockage de randomPerson
         if (localStorage.getItem("randomPerson") == null) {
             const randomPerson = data[Math.floor(Math.random() * data.length)];
             setTargetPerson(randomPerson);
@@ -20,6 +21,12 @@ export default function MainGame() {
                 localStorage.getItem("randomPerson"),
             );
             setTargetPerson(randomPerson);
+        }
+
+        // Stockage de listPersons
+        if (localStorage.getItem("listPersons") != null) {
+            const listPersons = JSON.parse(localStorage.getItem("listPersons"));
+            setValidatedPersons(listPersons);
         }
     }, []);
 
@@ -54,7 +61,9 @@ export default function MainGame() {
 
     function handleSuggestionClick(person) {
         // Ajouter une personne validée
-        setValidatedPersons([person, ...validatedPersons]);
+        const persons = [person, ...validatedPersons];
+        setValidatedPersons(persons);
+        localStorage.setItem("listPersons", JSON.stringify(persons));
         setInput("");
         setSuggestions([]);
 
@@ -77,7 +86,9 @@ export default function MainGame() {
         // Réinitialiser le jeu
         const randomPerson = data[Math.floor(Math.random() * data.length)];
         setTargetPerson(randomPerson);
+        localStorage.setItem("randomPerson", JSON.stringify(randomPerson));
         setValidatedPersons([]);
+        localStorage.setItem("listPersons", null);
         setGameWon(false);
         setInput("");
     }
