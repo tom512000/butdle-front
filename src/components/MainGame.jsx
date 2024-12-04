@@ -11,8 +11,16 @@ export default function MainGame() {
     const [gameWon, setGameWon] = useState(false);
 
     useEffect(() => {
-        const randomPerson = data[Math.floor(Math.random() * data.length)];
-        setTargetPerson(randomPerson);
+        if (localStorage.getItem("randomPerson") == null) {
+            const randomPerson = data[Math.floor(Math.random() * data.length)];
+            setTargetPerson(randomPerson);
+            localStorage.setItem("randomPerson", JSON.stringify(randomPerson));
+        } else {
+            const randomPerson = JSON.parse(
+                localStorage.getItem("randomPerson"),
+            );
+            setTargetPerson(randomPerson);
+        }
     }, []);
 
     function handleInputChange(e) {
