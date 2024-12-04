@@ -10,7 +10,7 @@ export default function MainMenu() {
     return (
         <div className="flex flex-col gap-4 mt-16">
             <ButtonCard
-                link="/main-game"
+                link="/daily"
                 icon={
                     <ClockCircleOutlined className="text-5xl text-light-blue-but" />
                 }
@@ -18,7 +18,7 @@ export default function MainMenu() {
                 description="Devine la personne du jour."
             />
             <ButtonCard
-                link="/"
+                link="/unlimited"
                 icon={
                     <ReloadOutlined className="text-5xl text-light-blue-but" />
                 }
@@ -26,7 +26,7 @@ export default function MainMenu() {
                 description="Joue sans aucune limite."
             />
             <ButtonCard
-                link="/"
+                link="/the-face"
                 icon={<UserOutlined className="text-5xl text-light-blue-but" />}
                 title="The Face"
                 description="Trouve avec l'avatar."

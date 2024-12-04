@@ -16,7 +16,13 @@ export default function App() {
                 <Route path="/">
                     <MainMenu />
                 </Route>
-                <Route path="/main-game">
+                <Route path="/daily">
+                    <MainGame />
+                </Route>
+                <Route path="/unlimited">
+                    <MainGame />
+                </Route>
+                <Route path="/the-face">
                     <MainGame />
                 </Route>
                 <Route component={NotFound} />
