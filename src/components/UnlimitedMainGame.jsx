@@ -30,7 +30,6 @@ export default function UnlimitedMainGame() {
             );
             setTargetPerson(unlimitedRandomPerson);
         }
-        console.log(JSON.parse(localStorage.getItem("unlimitedRandomPerson")));
 
         // Stockage de unlimitedListPersons
         if (localStorage.getItem("unlimitedListPersons") != null) {
@@ -39,22 +38,18 @@ export default function UnlimitedMainGame() {
             setValidatedPersons(unlimitedListPersons);
 
             // Revérification de la victoire
-            if (localStorage.getItem("unlimitedRandomPerson") != null) {
-                const unlimitedRandomPerson = JSON.parse(
-                    localStorage.getItem("unlimitedRandomPerson"),
-                );
+            const unlimitedRandomPerson = JSON.parse(
+                localStorage.getItem("unlimitedRandomPerson"),
+            );
 
-                if (unlimitedListPersons !== []) {
-                    const isGameWon = unlimitedListPersons.some(
-                        (person) =>
-                            person.nom === unlimitedRandomPerson.nom &&
-                            person.prenom === unlimitedRandomPerson.prenom,
-                    );
+            const isGameWon = unlimitedListPersons.some(
+                (person) =>
+                    person.nom === unlimitedRandomPerson.nom &&
+                    person.prenom === unlimitedRandomPerson.prenom,
+            );
 
-                    if (isGameWon) {
-                        setGameWon(true);
-                    }
-                }
+            if (isGameWon) {
+                setGameWon(true);
             }
         }
     }, []);
