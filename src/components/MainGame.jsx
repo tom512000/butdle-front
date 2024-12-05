@@ -164,15 +164,8 @@ export default function MainGame() {
                             ))}
                         </div>
                     </div>
-                    <div className="grid grid-cols-[70px_150px_150px_150px_150px_150px_320px] mt-10">
-                        <div className="text-center bg-gray-800 rounded-l-lg" />
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
-                            PRÉNOM
-                        </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
-                            NOM
-                        </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                    <div className="grid grid-cols-[150px_150px_150px_320px_150px_150px_80px] mt-10">
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-l-lg">
                             GENRE
                         </div>
                         <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
@@ -181,9 +174,16 @@ export default function MainGame() {
                         <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
                             STATUT
                         </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-r-lg">
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
                             MATIÈRE(S)
                         </div>
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                            PRÉNOM
+                        </div>
+                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                            NOM
+                        </div>
+                        <div className="text-center bg-gray-800 rounded-r-lg" />
                         <div className="h-2" />
                         <div className="h-2" />
                         <div className="h-2" />
