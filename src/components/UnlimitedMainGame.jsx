@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+    CloseOutlined,
+    SearchOutlined,
+    ReloadOutlined,
+} from "@ant-design/icons";
 import data from "../data/persons.json";
 import PersonCard from "./PersonCard";
 
@@ -26,13 +30,32 @@ export default function UnlimitedMainGame() {
             );
             setTargetPerson(unlimitedRandomPerson);
         }
+        console.log(JSON.parse(localStorage.getItem("unlimitedRandomPerson")));
 
         // Stockage de unlimitedListPersons
         if (localStorage.getItem("unlimitedListPersons") != null) {
-            const unlimitedListPersons = JSON.parse(
-                localStorage.getItem("unlimitedListPersons"),
-            );
+            const unlimitedListPersons =
+                JSON.parse(localStorage.getItem("unlimitedListPersons")) || [];
             setValidatedPersons(unlimitedListPersons);
+
+            // Revérification de la victoire
+            if (localStorage.getItem("unlimitedRandomPerson") != null) {
+                const unlimitedRandomPerson = JSON.parse(
+                    localStorage.getItem("unlimitedRandomPerson"),
+                );
+
+                if (unlimitedListPersons !== []) {
+                    const isGameWon = unlimitedListPersons.some(
+                        (person) =>
+                            person.nom === unlimitedRandomPerson.nom &&
+                            person.prenom === unlimitedRandomPerson.prenom,
+                    );
+
+                    if (isGameWon) {
+                        setGameWon(true);
+                    }
+                }
+            }
         }
     }, []);
 
@@ -106,111 +129,124 @@ export default function UnlimitedMainGame() {
     return (
         <div className="flex flex-col items-center">
             {gameWon ? (
-                <div className="bg-gradient-to-b from-emerald-300 to-gray-800">
-                    <h2>
-                        Bravo ! Vous avez trouvé {targetPerson.prenom}{" "}
-                        {targetPerson.nom} !
+                <div className="w-[430px] py-8 px-10 flex flex-col justify-center items-center bg-gradient-to-b from-green-700 to-gray-800 rounded-md border border-emerald-300 mt-10">
+                    <h1 className="text-4xl text-white font-parkinsans font-semibold">
+                        BRAVO !
+                    </h1>
+                    <h2 className="text-lg text-white font-parkinsans font-medium mt-5">
+                        Vous avez trouvé la bonne personne !
                     </h2>
-                    <button type="button" onClick={handleRestart}>
+                    <div className="w-full flex flex-col items-center mt-8">
+                        <img
+                            className="rounded-full object-cover"
+                            src={`/images/${targetPerson.image}`}
+                            alt={`${targetPerson.prenom} ${targetPerson.nom}`}
+                        />
+                        <h2 className="text-xl text-white font-parkinsans font-semibold mt-5">
+                            {targetPerson.prenom} {targetPerson.nom}
+                        </h2>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={handleRestart}
+                        className="flex justify-center items-center bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm font-inter px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-6 ease-linear transition-all duration-150"
+                    >
+                        <ReloadOutlined className="text-base text-white mr-2" />
                         Rejouer
                     </button>
                 </div>
             ) : (
-                <>
-                    <div className="relative w-[320px] mt-10">
-                        <div className="relative mb-0.5">
-                            <input
-                                type="text"
-                                value={input}
-                                onChange={handleInputChange}
-                                placeholder="Entrez un nom ou un prénom"
-                                aria-label="search"
-                                className="appearance-none border-2 pl-10 bg-gray-800 border-gray-800 hover:border-gray-600 transition-colors rounded-md w-full py-2 px-3 font-inter text-sm text-gray-300 leading-tight focus:outline-none"
-                            />
-                            <button
-                                type="button"
-                                onClick={handleClearInput}
-                                aria-label="cross"
-                                className="absolute right-0 inset-y-0 flex items-center cursor-pointer"
-                            >
-                                <CloseOutlined className="bx bx-x text-xl ml-3 mr-3 text-gray-500 hover:text-gray-600" />
-                            </button>
-                            <div
-                                aria-label="search"
-                                className="absolute left-0 inset-y-0 flex items-center"
-                            >
-                                <SearchOutlined className="bx bx-search text-xl mx-3 text-gray-500" />
-                            </div>
-                        </div>
-                        <div
-                            className="absolute top-full left-0 w-full bg-gray-900 z-10 rounded-[4px]"
-                            style={{
-                                border:
-                                    suggestions.length > 0
-                                        ? "1px solid #444852"
-                                        : "none",
-                                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                            }}
+                <div className="relative w-[320px] mt-10">
+                    <div className="relative mb-0.5">
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={handleInputChange}
+                            placeholder="Entrez un nom ou un prénom"
+                            aria-label="search"
+                            className="appearance-none border-2 pl-10 bg-gray-800 border-gray-800 hover:border-gray-600 transition-colors rounded-md w-full py-2 px-3 font-inter text-sm text-gray-300 leading-tight focus:outline-none"
+                        />
+                        <button
+                            type="button"
+                            onClick={handleClearInput}
+                            aria-label="cross"
+                            className="absolute right-0 inset-y-0 flex items-center cursor-pointer"
                         >
-                            {suggestions.map((person) => (
-                                <button
-                                    key={`${person.prenom}-${person.nom}`}
-                                    type="button"
-                                    onClick={() =>
-                                        handleSuggestionClick(person)
-                                    }
-                                    className="w-full flex justify-start items-center border-b-2 border-gray-800 p-3 text-gray-500 font-inter cursor-pointer"
-                                >
-                                    <img
-                                        className="rounded-full h-8 w-8 object-cover ml-2 mr-4"
-                                        src={`/images/${person.image}`}
-                                        alt={`${person.prenom} ${person.nom}`}
-                                    />
-                                    <span className="font-semibold">
-                                        {person.prenom}
-                                    </span>
-                                    &thinsp;&thinsp;{person.nom}
-                                </button>
-                            ))}
+                            <CloseOutlined className="bx bx-x text-xl ml-3 mr-3 text-gray-500 hover:text-gray-600" />
+                        </button>
+                        <div
+                            aria-label="search"
+                            className="absolute left-0 inset-y-0 flex items-center"
+                        >
+                            <SearchOutlined className="bx bx-search text-xl mx-3 text-gray-500" />
                         </div>
                     </div>
-                    <div className="grid grid-cols-[150px_150px_150px_320px_150px_150px_80px] mt-10">
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-l-lg">
-                            GENRE
-                        </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
-                            EMPLOI
-                        </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
-                            STATUT
-                        </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
-                            MATIÈRE(S)
-                        </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
-                            PRÉNOM
-                        </div>
-                        <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
-                            NOM
-                        </div>
-                        <div className="text-center bg-gray-800 rounded-r-lg" />
-                        <div className="h-2" />
-                        <div className="h-2" />
-                        <div className="h-2" />
-                        <div className="h-2" />
-                        <div className="h-2" />
-                        <div className="h-2" />
-                        <div className="h-2" />
-                        {validatedPersons.map((person) => (
-                            <PersonCard
+                    <div
+                        className="absolute top-full left-0 w-full bg-gray-900 z-10 rounded-[4px]"
+                        style={{
+                            border:
+                                suggestions.length > 0
+                                    ? "1px solid #444852"
+                                    : "none",
+                            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                        }}
+                    >
+                        {suggestions.map((person) => (
+                            <button
                                 key={`${person.prenom}-${person.nom}`}
-                                person={person}
-                                target={targetPerson}
-                            />
+                                type="button"
+                                onClick={() => handleSuggestionClick(person)}
+                                className="w-full flex justify-start items-center border-b-2 border-gray-800 p-3 text-gray-500 font-inter cursor-pointer"
+                            >
+                                <img
+                                    className="rounded-full h-8 w-8 object-cover ml-2 mr-4"
+                                    src={`/images/${person.image}`}
+                                    alt={`${person.prenom} ${person.nom}`}
+                                />
+                                <span className="font-semibold">
+                                    {person.prenom}
+                                </span>
+                                &thinsp;&thinsp;{person.nom}
+                            </button>
                         ))}
                     </div>
-                </>
+                </div>
             )}
+            <div className="grid grid-cols-[150px_150px_150px_320px_150px_150px_80px] mt-10">
+                <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-l-lg">
+                    GENRE
+                </div>
+                <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                    EMPLOI
+                </div>
+                <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                    STATUT
+                </div>
+                <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                    MATIÈRE(S)
+                </div>
+                <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                    PRÉNOM
+                </div>
+                <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500">
+                    NOM
+                </div>
+                <div className="text-center bg-gray-800 rounded-r-lg" />
+                <div className="h-2" />
+                <div className="h-2" />
+                <div className="h-2" />
+                <div className="h-2" />
+                <div className="h-2" />
+                <div className="h-2" />
+                <div className="h-2" />
+                {validatedPersons.map((person) => (
+                    <PersonCard
+                        key={`${person.prenom}-${person.nom}`}
+                        person={person}
+                        target={targetPerson}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

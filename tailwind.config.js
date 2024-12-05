@@ -47,9 +47,9 @@ module.exports = {
                 extrabold: "800",
                 black: "900",
             },
-        },
-        backgroundImage: {
-            iut: "url('/images/iut.jpg')",
+            backgroundImage: {
+                iut: "url('/images/iut.jpg')",
+            },
         },
     },
     variants: {},
