@@ -3,7 +3,7 @@ import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 import data from "../data/persons.json";
 import PersonCard from "./PersonCard";
 
-export default function MainGame() {
+export default function DailyMainGame() {
     const [input, setInput] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const [validatedPersons, setValidatedPersons] = useState([]);
@@ -11,22 +11,28 @@ export default function MainGame() {
     const [gameWon, setGameWon] = useState(false);
 
     useEffect(() => {
-        // Stockage de randomPerson
-        if (localStorage.getItem("randomPerson") == null) {
-            const randomPerson = data[Math.floor(Math.random() * data.length)];
-            setTargetPerson(randomPerson);
-            localStorage.setItem("randomPerson", JSON.stringify(randomPerson));
-        } else {
-            const randomPerson = JSON.parse(
-                localStorage.getItem("randomPerson"),
+        // Stockage de dailyRandomPerson
+        if (localStorage.getItem("dailyRandomPerson") == null) {
+            const dailyRandomPerson =
+                data[Math.floor(Math.random() * data.length)];
+            setTargetPerson(dailyRandomPerson);
+            localStorage.setItem(
+                "dailyRandomPerson",
+                JSON.stringify(dailyRandomPerson),
             );
-            setTargetPerson(randomPerson);
+        } else {
+            const dailyRandomPerson = JSON.parse(
+                localStorage.getItem("dailyRandomPerson"),
+            );
+            setTargetPerson(dailyRandomPerson);
         }
 
-        // Stockage de listPersons
-        if (localStorage.getItem("listPersons") != null) {
-            const listPersons = JSON.parse(localStorage.getItem("listPersons"));
-            setValidatedPersons(listPersons);
+        // Stockage de dailyListPersons
+        if (localStorage.getItem("dailyListPersons") != null) {
+            const dailyListPersons = JSON.parse(
+                localStorage.getItem("dailyListPersons"),
+            );
+            setValidatedPersons(dailyListPersons);
         }
     }, []);
 
@@ -63,7 +69,7 @@ export default function MainGame() {
         // Ajouter une personne validée
         const persons = [person, ...validatedPersons];
         setValidatedPersons(persons);
-        localStorage.setItem("listPersons", JSON.stringify(persons));
+        localStorage.setItem("dailyListPersons", JSON.stringify(persons));
         setInput("");
         setSuggestions([]);
 
@@ -84,11 +90,14 @@ export default function MainGame() {
 
     function handleRestart() {
         // Réinitialiser le jeu
-        const randomPerson = data[Math.floor(Math.random() * data.length)];
-        setTargetPerson(randomPerson);
-        localStorage.setItem("randomPerson", JSON.stringify(randomPerson));
+        const dailyRandomPerson = data[Math.floor(Math.random() * data.length)];
+        setTargetPerson(dailyRandomPerson);
+        localStorage.setItem(
+            "dailyRandomPerson",
+            JSON.stringify(dailyRandomPerson),
+        );
         setValidatedPersons([]);
-        localStorage.setItem("listPersons", null);
+        localStorage.setItem("dailyListPersons", null);
         setGameWon(false);
         setInput("");
     }

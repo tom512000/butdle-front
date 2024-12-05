@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "wouter";
 import MainMenu from "./components/MainMenu";
-import MainGame from "./components/MainGame";
-import NotFound from "./components/NotFound";
+import DailyMainGame from "./components/DailyMainGame";
 import UnlimitedMainGame from "./components/UnlimitedMainGame";
+import NotFound from "./components/NotFound";
 
 export default function App() {
     return (
@@ -18,13 +18,13 @@ export default function App() {
                     <MainMenu />
                 </Route>
                 <Route path="/daily">
-                    <MainGame />
+                    <DailyMainGame />
                 </Route>
                 <Route path="/unlimited">
                     <UnlimitedMainGame />
                 </Route>
                 <Route path="/the-face">
-                    <MainGame />
+                    <DailyMainGame />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
