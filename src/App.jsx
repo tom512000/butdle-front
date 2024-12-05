@@ -3,6 +3,7 @@ import { Route, Switch } from "wouter";
 import MainMenu from "./components/MainMenu";
 import MainGame from "./components/MainGame";
 import NotFound from "./components/NotFound";
+import UnlimitedMainGame from "./components/UnlimitedMainGame";
 
 export default function App() {
     return (
@@ -20,7 +21,7 @@ export default function App() {
                     <MainGame />
                 </Route>
                 <Route path="/unlimited">
-                    <MainGame />
+                    <UnlimitedMainGame />
                 </Route>
                 <Route path="/the-face">
                     <MainGame />
