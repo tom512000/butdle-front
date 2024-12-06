@@ -8,11 +8,14 @@ import NotFound from "./components/NotFound";
 export default function App() {
     return (
         <div className="min-h-screen h-full flex flex-col items-center">
-            <img
-                src="/images/butdle-logo.png"
-                alt="Logo BUTDLE"
-                className="mt-10"
-            />
+            <a href="/">
+                <img
+                    src="/images/butdle-logo.png"
+                    alt="Logo BUTDLE"
+                    className="mt-10"
+                />
+            </a>
+
             <Switch>
                 <Route path="/">
                     <MainMenu />
