@@ -13,6 +13,7 @@ export default function UnlimitedMainGame() {
     const [suggestions, setSuggestions] = useState([]);
     const [validatedPersons, setValidatedPersons] = useState([]);
     const [targetPerson, setTargetPerson] = useState(null);
+    const [trialsNumber, setTrialsNumber] = useState(0);
     const [gameWon, setGameWon] = useState(false);
 
     useEffect(() => {
@@ -53,6 +54,16 @@ export default function UnlimitedMainGame() {
                 setGameWon(true);
             }
         }
+
+        // Stockage de trialsNumber
+        if (localStorage.getItem("trialsNumber") == null) {
+            const trialsNb = 0;
+            setTrialsNumber(trialsNb);
+            localStorage.setItem("trialsNumber", trialsNb.toString());
+        } else {
+            const trialsNb = parseInt(localStorage.getItem("trialsNumber"), 10);
+            setTrialsNumber(trialsNb);
+        }
     }, []);
 
     function handleInputChange(e) {
@@ -85,11 +96,20 @@ export default function UnlimitedMainGame() {
     }
 
     function handleSuggestionClick(person) {
-        // Ajouter une personne validée
+        // Liste des personnes validées
         const persons = [person, ...validatedPersons];
         setValidatedPersons(persons);
         localStorage.setItem("unlimitedListPersons", JSON.stringify(persons));
+
+        // Nombre d'essai
+        const trialsNb = parseInt(localStorage.getItem("trialsNumber"), 10) + 1;
+        setTrialsNumber(trialsNb);
+        localStorage.setItem("trialsNumber", trialsNb.toString());
+
+        // Champ d'ajout
         setInput("");
+
+        // Liste des suggestions
         setSuggestions([]);
 
         // Vérifier si c'est la bonne personne
@@ -108,7 +128,7 @@ export default function UnlimitedMainGame() {
     }
 
     function handleRestart() {
-        // Réinitialiser le jeu
+        // Personne aléatoire
         const unlimitedRandomPerson =
             data[Math.floor(Math.random() * data.length)];
         setTargetPerson(unlimitedRandomPerson);
@@ -116,9 +136,20 @@ export default function UnlimitedMainGame() {
             "unlimitedRandomPerson",
             JSON.stringify(unlimitedRandomPerson),
         );
+
+        // Personnes validées
         setValidatedPersons([]);
         localStorage.setItem("unlimitedListPersons", null);
+
+        // Nombre d'essai
+        const trialsNb = 0;
+        setTrialsNumber(trialsNb);
+        localStorage.setItem("trialsNumber", trialsNb.toString());
+
+        // État du jeu
         setGameWon(false);
+
+        // Champ d'ajout
         setInput("");
     }
 
@@ -130,7 +161,9 @@ export default function UnlimitedMainGame() {
                         BRAVO !
                     </h1>
                     <h2 className="text-lg text-white font-parkinsans font-medium mt-5">
-                        Vous avez trouvé la bonne personne !
+                        Vous avez trouvé la bonne personne en{" "}
+                        <span className="font-bold">{trialsNumber}</span>{" "}
+                        essai(s) !
                     </h2>
                     <div className="w-full flex flex-col items-center mt-8">
                         <img
@@ -152,11 +185,11 @@ export default function UnlimitedMainGame() {
                     </button>
                 </div>
             ) : (
-                <div className="relative w-[320px] mt-10">
+                <div className="relative mt-10">
                     <div className="relative flex">
                         <button
                             type="button"
-                            className="w-[37px] min-w-[37px] h-[37px] flex justify-center items-center mr-3 group bg-gray-800 rounded-md"
+                            className="w-[37px] min-w-[37px] h-[38px] flex justify-center items-center mr-3 group bg-gray-800 rounded-md"
                         >
                             <QuestionOutlined className="text-xl text-gray-500 group-hover:text-gray-600 transition-colors duration-200" />
                         </button>
@@ -184,15 +217,21 @@ export default function UnlimitedMainGame() {
                                 <SearchOutlined className="text-xl mx-3 text-gray-500" />
                             </div>
                         </div>
+                        <div className="w-[100px] min-w-[100px] h-[38px] flex justify-center items-center ml-3 group bg-gray-800 rounded-md">
+                            <p className="font-inter text-sm text-gray-500 font-semibold">
+                                {trialsNumber}&ensp;
+                                <span className="font-medium">essai(s)</span>
+                            </p>
+                        </div>
                     </div>
                     <div
-                        className="absolute top-full left-0 w-full bg-gray-900 z-10 rounded-[4px]"
+                        className="absolute top-full left-[3.10rem] w-[300px] bg-gray-900 z-10 rounded-[4px]"
                         style={{
                             border:
                                 suggestions.length > 0
                                     ? "1px solid #444852"
                                     : "none",
-                            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)"
+                            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                         }}
                     >
                         {suggestions.map((person) => (
