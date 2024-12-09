@@ -7,6 +7,7 @@ import {
 } from "@ant-design/icons";
 import data from "../data/persons.json";
 import PersonCard from "./PersonCard";
+import MainGameTutorial from "./MainGameTutorial";
 
 export default function UnlimitedMainGame() {
     const [input, setInput] = useState("");
@@ -15,6 +16,7 @@ export default function UnlimitedMainGame() {
     const [targetPerson, setTargetPerson] = useState(null);
     const [trialsNumber, setTrialsNumber] = useState(0);
     const [gameWon, setGameWon] = useState(false);
+    const [isTutorialOpen, setIsTutorialOpen] = useState(false);
 
     useEffect(() => {
         // Stockage de unlimitedRandomPerson
@@ -66,6 +68,7 @@ export default function UnlimitedMainGame() {
         }
     }, []);
 
+    // Gestion du champ de recherche
     function handleInputChange(e) {
         const { value } = e.target;
         setInput(value);
@@ -95,6 +98,7 @@ export default function UnlimitedMainGame() {
         }
     }
 
+    // Gestion du click sur une suggestion
     function handleSuggestionClick(person) {
         // Liste des personnes validées
         const persons = [person, ...validatedPersons];
@@ -121,12 +125,13 @@ export default function UnlimitedMainGame() {
         }
     }
 
+    // Réinitialiser le champ d'entrée
     function handleClearInput() {
-        // Réinitialiser le champ d'entrée
         setInput("");
         setSuggestions([]);
     }
 
+    // Redémarrer une partie
     function handleRestart() {
         // Personne aléatoire
         const unlimitedRandomPerson =
@@ -151,6 +156,11 @@ export default function UnlimitedMainGame() {
 
         // Champ d'ajout
         setInput("");
+    }
+
+    // Gestion de la fenêtre de tutoriel
+    function toggleVisibility() {
+        setIsTutorialOpen(!isTutorialOpen);
     }
 
     return (
@@ -189,6 +199,7 @@ export default function UnlimitedMainGame() {
                     <div className="relative flex">
                         <button
                             type="button"
+                            onClick={toggleVisibility}
                             className="w-[37px] min-w-[37px] h-[38px] flex justify-center items-center mr-3 group bg-gray-800 rounded-md"
                         >
                             <QuestionOutlined className="text-xl text-gray-500 group-hover:text-gray-600 transition-colors duration-200" />
@@ -254,6 +265,15 @@ export default function UnlimitedMainGame() {
                         ))}
                     </div>
                 </div>
+            )}
+            {isTutorialOpen && (
+                <button
+                    type="button"
+                    onClick={toggleVisibility}
+                    className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-75 z-50 cursor-default"
+                >
+                    <MainGameTutorial />
+                </button>
             )}
             <div className="grid grid-cols-[150px_150px_150px_320px_150px_150px_80px] mt-10">
                 <div className="px-10 py-3 text-center text-base font-parkinsans font-semibold bg-gray-800 text-gray-500 rounded-l-lg">

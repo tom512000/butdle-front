@@ -110,7 +110,7 @@ export default function PersonCard({ person, target }) {
             </div>
             <div className="flex justify-center items-center py-5 bg-gray-800 rounded-r-lg">
                 <img
-                    className="rounded-full h-12 w-12 object-cover mr-8 z-50 animate-fade-in"
+                    className="rounded-full h-12 w-12 object-cover mr-8 z-40 animate-fade-in"
                     style={{ animationDelay: "3000ms" }}
                     src={`/images/${person.image}`}
                     alt={`${person.prenom} ${person.nom}`}
