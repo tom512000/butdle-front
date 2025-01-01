@@ -5,6 +5,7 @@ import {
     ReloadOutlined,
     QuestionOutlined,
 } from "@ant-design/icons";
+import Confetti from "react-confetti";
 import data from "../data/persons.json";
 import PersonCard from "./PersonCard";
 import MainGameTutorial from "./MainGameTutorial";
@@ -166,34 +167,37 @@ export default function UnlimitedMainGame() {
     return (
         <div className="flex flex-col items-center">
             {gameWon ? (
-                <div className="w-[430px] py-8 px-10 flex flex-col justify-center items-center bg-gradient-to-b from-green-700 to-gray-800 rounded-md border border-emerald-300 mt-10">
-                    <h1 className="text-4xl text-white font-parkinsans font-semibold">
-                        BRAVO !
-                    </h1>
-                    <h2 className="text-lg text-white font-parkinsans font-medium mt-5">
-                        Vous avez trouvé la bonne personne en{" "}
-                        <span className="font-bold">{trialsNumber}</span>{" "}
-                        essai(s) !
-                    </h2>
-                    <div className="w-full flex flex-col items-center mt-8">
-                        <img
-                            className="rounded-full object-cover"
-                            src={`/images/${targetPerson.image}`}
-                            alt={`${targetPerson.prenom} ${targetPerson.nom}`}
-                        />
-                        <h2 className="text-xl text-white font-parkinsans font-semibold mt-5">
-                            {targetPerson.prenom} {targetPerson.nom}
+                <>
+                    <Confetti className="w-full h-full" />
+                    <div className="w-[430px] py-8 px-10 flex flex-col justify-center items-center bg-gradient-to-b from-green-700 to-gray-800 rounded-md border border-emerald-300 mt-10">
+                        <h1 className="text-4xl text-white font-parkinsans font-semibold">
+                            BRAVO !
+                        </h1>
+                        <h2 className="text-lg text-white font-parkinsans font-medium mt-5">
+                            Vous avez trouvé la bonne personne en{" "}
+                            <span className="font-bold">{trialsNumber}</span>{" "}
+                            essai(s) !
                         </h2>
+                        <div className="w-full flex flex-col items-center mt-8">
+                            <img
+                                className="rounded-full object-cover"
+                                src={`/images/${targetPerson.image}`}
+                                alt={`${targetPerson.prenom} ${targetPerson.nom}`}
+                            />
+                            <h2 className="text-xl text-white font-parkinsans font-semibold mt-5">
+                                {targetPerson.prenom} {targetPerson.nom}
+                            </h2>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={handleRestart}
+                            className="flex justify-center items-center bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm font-inter px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-6 ease-linear transition-all duration-150"
+                        >
+                            <ReloadOutlined className="text-base text-white mr-2" />
+                            Rejouer
+                        </button>
                     </div>
-                    <button
-                        type="button"
-                        onClick={handleRestart}
-                        className="flex justify-center items-center bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm font-inter px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-6 ease-linear transition-all duration-150"
-                    >
-                        <ReloadOutlined className="text-base text-white mr-2" />
-                        Rejouer
-                    </button>
-                </div>
+                </>
             ) : (
                 <div className="relative mt-10">
                     <div className="relative flex">
